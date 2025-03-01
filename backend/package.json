@@ -1,0 +1,29 @@
+{
+  "name": "atividade-lsw",
+  "version": "1.0.0",
+  "description": "Projeto de LSW",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "dev": "nodemon app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vanessabia/Atividade-LSW.git"
+  },
+  "author": "Vanessa Beatriz",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/vanessabia/Atividade-LSW/issues"
+  },
+  "homepage": "https://github.com/vanessabia/Atividade-LSW#readme",
+  "dependencies": {
+    "dotenv": "^16.4.7",
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "morgan": "^1.10.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  }
+}

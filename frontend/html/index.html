@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Futebol entre Amigos</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <div class="container py-4">
+    <header class="pb-3 mb-4 border-bottom">
+      <div class="d-flex align-items-center text-dark">
+        <i class="fas fa-futbol me-2"></i>
+        <span class="fs-4">Futebol entre Amigos</span>
+      </div>
+    </header>
+
+    <div class="row mb-4">
+      <div class="col-md-4">
+        <div class="card">
+          <div class="card-header bg-primary text-white">
+            <h5 class="card-title mb-0">Criar Nova Partida</h5>
+          </div>
+          <div class="card-body">
+            <form id="form-partida">
+              <div class="mb-3">
+                <label for="titulo" class="form-label">Título</label>
+                <input type="text" class="form-control" id="titulo" required>
+              </div>
+              <div class="mb-3">
+                <label for="local" class="form-label">Local</label>
+                <input type="text" class="form-control" id="local" required>
+              </div>
+              <div class="mb-3">
+                <label for="data" class="form-label">Data</label>
+                <input type="date" class="form-control" id="data" required>
+              </div>
+              <div class="mb-3">
+                <label for="horario" class="form-label">Horário</label>
+                <input type="time" class="form-control" id="horario" required>
+              </div>
+              <button type="submit" class="btn btn-primary">Criar Partida</button>
+            </form>
+          </div>
+        </div>
+      </div>
+      
+      <div class="col-md-8">
+        <div class="alert alert-info">
+          <i class="fas fa-info-circle me-2"></i> Selecione uma partida para gerenciar os jogadores e presenças
+        </div>
+        <div id="lista-partidas" class="row">
+        
+          <div class="col-12 text-center py-5 d-none" id="sem-partidas">
+            <p class="text-muted">Nenhuma partida marcada</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal fade" id="modal-jogadores" tabindex="-1" aria-hidden="true">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <div class="modal-header bg-success text-white">
+            <h5 class="modal-title">Gerenciar Jogadores</h5>
+            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Fechar"></button>
+          </div>
+          <div class="modal-body">
+            <div class="card mb-4">
+              <div class="card-header">
+                <h6 class="mb-0">Adicionar Jogador</h6>
+              </div>
+              <div class="card-body">
+                <form id="form-jogador" class="row">
+                  <input type="hidden" id="partida-id">
+                  <div class="col-md-5 mb-3">
+                    <label for="nome-jogador" class="form-label">Nome</label>
+                    <input type="text" class="form-control" id="nome-jogador" required>
+                  </div>
+                  <div class="col-md-5 mb-3">
+                    <label for="telefone-jogador" class="form-label">Telefone</label>
+                    <input type="tel" class="form-control" id="telefone-jogador" required>
+                  </div>
+                  <div class="col-md-2 d-flex align-items-end">
+                    <button type="submit" class="btn btn-success w-100">Adicionar</button>
+                  </div>
+                </form>
+              </div>
+            </div>
+
+            <div class="card">
+              <div class="card-header d-flex justify-content-between align-items-center">
+                <h6 class="mb-0">Lista de Jogadores</h6>
+                <span id="contador-jogadores" class="badge bg-primary">0</span>
+              </div>
+              <div class="card-body">
+                <table class="table table-hover">
+                  <thead>
+                    <tr>
+                      <th>Nome</th>
+                      <th>Telefone</th>
+                      <th>Presença</th>
+                      <th>Ações</th>
+                    </tr>
+                  </thead>
+                  <tbody id="lista-jogadores"> </tbody>
+                </table>
+                <div id="sem-jogadores" class="text-center py-3 d-none">
+                  <p class="text-muted mb-0">Nenhum jogador adicionado</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+            <button type="button" class="btn btn-danger" id="btn-excluir-partida">
+              <i class="fas fa-trash-alt me-1"></i> Excluir Partida
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <script src="js/script.js"></script>
+  </div>
+</body>
+</html>
