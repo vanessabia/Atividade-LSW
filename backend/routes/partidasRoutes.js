@@ -3,6 +3,8 @@ const fs = require('fs').promises;
 const path = require('path');
 const router = express.Router();
 
+module.exports =  router ;
+
 const partidasFile = path.join(__dirname, '../data/partidas.json');
 
 async function readPartidasFile() {
@@ -14,8 +16,6 @@ async function readPartidasFile() {
     return [];
   }
 }
-
-module.exports = { router , readPartidasFile };
 
 async function writePartidasFile(partidas) {
   try {

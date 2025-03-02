@@ -3,7 +3,8 @@ const cors = require('cors');
 const morgan = require('morgan');
 const fs = require('fs');
 const path = require('path');
-const { router: partidasRoutes } = require('./routes/partidasRoutes');
+const partidasRoutes = require('./routes/partidasRoutes');
+
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -22,6 +23,9 @@ if (!fs.existsSync(partidasFile)) {
 console.log(typeof partidasRoutes); 
 console.log(partidasRoutes); 
 
+console.log('Tipo de partidasRoutes:', typeof partidasRoutes);
+console.log('Conteúdo de partidasRoutes:', partidasRoutes);
+
 app.use(cors());
 app.use(morgan('dev'));
 app.use(express.json());
@@ -32,7 +36,7 @@ app.use(express.static(path.join(__dirname, '../frontend')));
 app.use('/api/partidas', partidasRoutes);
 
 app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, '../frontend/index.html'));
+  res.sendFile(path.join(__dirname, '../frontend/html/index.html'));
 });
 
 app.listen(PORT, () => {
